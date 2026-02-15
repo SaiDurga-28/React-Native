@@ -1,5 +1,6 @@
 import react from "react";
-import { View ,StyleSheet,StatusBar,Text,FlatList,Image,TextInput,Button} from "react-native";
+import { View ,StyleSheet,StatusBar,Text,FlatList,Image} from "react-native";
+import { ActivityIndicator,Badge, Button, Chip,TextInput } from "react-native-paper";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 // import sri_img from "./assets/sri_img.jpeg";
 // import uma_img from "./assets/uma_img.webp";
@@ -55,12 +56,12 @@ const Component = () =>{
     //     }
     // ]
     // console.log(Results)
-    const Fun=(event)=>{
-        console.log(event.nativeEvent.text);
-    }
-    const Fun1=(event)=>{
-        console.log('Pressed',new Date());
-    }
+    // const Fun=(event)=>{
+    //     console.log(event.nativeEvent.text);
+    // }
+    // const Fun1=(event)=>{
+    //     console.log('Pressed',new Date());
+    // }
     return(
         <>
             <StatusBar barStyle="light-content" hidden />
@@ -82,12 +83,30 @@ const Component = () =>{
             )}
              keyExtractor={(item)=>item.id}
              /> */}
-             <TextInput
+             {/* <TextInput
                 placeholder="Enter your name"
                 // keyboardType="numeric"
                 onChange={(event)=>Fun(event)}
              />
-             <Button title="Click me" onPress={Fun1}/>
+             <Button title="Click me" onPress={Fun1}/> */}
+             {/* ActivityIndicator Customization Examples */}
+             
+             {/* Type: Default (circular) */}
+             <ActivityIndicator
+               size={100}
+               color="red"
+               animating={true}
+             />
+             <Badge size={50} style={{backgroundColor:"blue"}}>5</Badge>
+             <Button mode="outlined" onPress={() => console.log('Pressed')} icon={'train'}>Press me</Button>
+             <Chip
+             style={{width:150}}
+             icon={'bike'}
+             onClose={() => console.log('Chip closed')}
+             closeIcon={'close'}>Bicycle</Chip>
+             <TextInput
+             placeholder="Enter your name"
+             />
         </>
     )
 }
